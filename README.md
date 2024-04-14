@@ -1,25 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Get Started for development
+GitHub に issue を作成する
 
-Things you may want to cover:
+ベースブランチに移動する
 
-* Ruby version
+基本的には develop ブランチから機能ブランチを作成する。 大型リリースで develop を使用する場合、大型リリースの機能開発ベースは develop となる。
 
-* System dependencies
+作業ブランチを作成する
 
-* Configuration
+開発ブランチの場合は feature/#{issue ID}-{英語名} とする。 {issue ID} は GitHub に作成した issue の ID を入れる。 {英語名} は issue のタイトルを完結な英語にしたものを入れる。
 
-* Database creation
+例えば、issue ID 100 で、「MembersController を実装する」という issue の場合下記をブランチ名とする。 feature/#100-create-members-controller となる。
 
-* Database initialization
+緊急修正の場合は hotfix/#{issue ID]-{英語名} とする。 {issue ID} と ｛英語名｝ は開発ブランチと同様。
 
-* How to run the test suite
+開発する
 
-* Services (job queues, cache servers, search engines, etc.)
+動作確認をする
 
-* Deployment instructions
+単体テスト実装をする
 
-* ...
-# bulletin-board
+PR を提出する
+
+基本的に派生元ブランチに PR を出す。
+
+セルフレビューをする
+
+GitHub に作成した PR の /files にアクセスする。 下記を観点として他者の作業をレビューするときと同様にレビューする。
+
+コードフォーマットが崩れていないか、無駄な空行の連続がないか
+issue に関係のない箇所を変更していないか
+生成物をコミット対象に含めていないか
+開発中に見つけた要修正箇所がある場合は、issue を作成する。 また、ソースコードには FIXME: xxx のコメントを付記する。
+
+PR のレビュー依頼を通知する
