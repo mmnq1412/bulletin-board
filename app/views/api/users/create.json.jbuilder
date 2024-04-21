@@ -1,0 +1,6 @@
+json.name @output[:id]
+json.name @output[:code]
+json.name @output[:first_name]
+json.name @output[:last_name]
+json.name @output[:final_education]
+json.name @output[:self_introduction]

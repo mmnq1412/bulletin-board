@@ -7,6 +7,13 @@ class Api::UsersController < Api::BaseController
     @output = usecase.fetch
   end
 
+  def create
+    usecase = Api::CreateUsersUsecase.new(
+      input: Api::CreateUsersUsecase::Input.new
+    )
+    @output = usecase.create
+  end
+
   private
 
   def user_params
