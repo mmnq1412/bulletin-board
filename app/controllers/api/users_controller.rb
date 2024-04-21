@@ -1,5 +1,5 @@
 class Api::UsersController < Api::BaseController
-  
+
   def index
     usecase = Api::FetchUsersUsecase.new(
       input: Api::FetchUsersUsecase::Input.new
@@ -7,9 +7,16 @@ class Api::UsersController < Api::BaseController
     @output = usecase.fetch
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name)
+  def create
+    usecase = Api::CreateUserUsecase.new(
+      input: Api::CreateUserUsecase::Input.new(
+        code: params[:code],
+        first_name: params[:first_name],
+        last_name: params[:last_name],
+        final_education: params[:final_education],
+        self_introduction: params[:self_introduction]
+      )
+    )
+    @output = usecase.create
   end
 end

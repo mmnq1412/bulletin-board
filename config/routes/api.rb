@@ -1,2 +1,2 @@
-resources :users, only: [:index] do
+resources :users, only: [:index, :create, :update, :destroy] do
 end
