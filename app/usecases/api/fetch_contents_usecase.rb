@@ -7,11 +7,11 @@ class Api::FetchContentsUsecase < Api::Usecase
     end
   
     def fetch
-      contents = Content.all.map do |content|
+      contents = Contents.all.map do |content|
         Models::ContentCell.new(
-          contents: content.contents
+          content: content.content
         )
-      end
+      end      
   
       Output.new(contents: contents)
     end
