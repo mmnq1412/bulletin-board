@@ -19,4 +19,10 @@ class Api::UsersController < Api::BaseController
     )
     @output = usecase.create
   end
+
+  # newアクションを定義
+  def new
+    @user = User.new
+  end
+
 end
