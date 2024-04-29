@@ -6,8 +6,6 @@ end
 
 Rails.application.routes.draw do
   namespace :api do
-    resources :boards, only: [:index]
-    
-    resources :contents, only: [:create]  # 新しく追加した行
+    draw :api
   end
 end

@@ -9,12 +9,7 @@ class Api::FetchContentsUsecase < Api::Usecase
     def fetch
       contents = Content.all.map do |content|
         Models::ContentCell.new(
-          id: content.id,
-          code: content.code,
-          first_name: content.first_name,
-          last_name: content.last_name,
-          final_education: content.final_education,
-          self_introduction: content.self_introduction  
+          contents: content.contents
         )
       end
   
