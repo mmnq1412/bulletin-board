@@ -1,0 +1,23 @@
+class Api::DestroyCommentUsecase < Api::Usecase
+  class InvalidParameterError < Api::Usecase::Error
+  end
+
+  class Input < Api::Usecase::Input
+    attr_accessor :code, :first_name, :last_name, :final_education, :self_introduction
+  end
+
+  class Output < Api::Usecase::Output
+    attr_accessor :user
+  end
+
+  def destroy 
+    begin
+      content = content.destroy!(
+        content: input.content,
+      )
+      @output = Output.new
+      @output.content = content
+      @output
+    end
+  end
+end
