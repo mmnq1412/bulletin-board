@@ -9,3 +9,10 @@ Rails.application.routes.draw do
     draw :api
   end
 end
+
+
+Rails.application.routes.draw do
+  namespace :adin do
+    draw :admin
+  end
+end
