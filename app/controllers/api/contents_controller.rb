@@ -15,4 +15,14 @@ class Api::ContentsController < Api::BaseController
     )
     @output = usecase.create
   end
+
+  def update
+    usecase = Api::UpdateContentUsecase.new(
+      input: Api::UpdateContentUsecase::Input.new(
+        id: params[:id],
+        content: params[:content]
+      )
+    )
+    @output = usecase.update
+  end
 end
