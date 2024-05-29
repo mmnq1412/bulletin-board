@@ -25,4 +25,14 @@ class Api::ContentsController < Api::BaseController
     )
     @output = usecase.update
   end
+
+  def destroy
+    usecase = Api::DestroyContentUsecase.new(
+      input: Api::DestroyContentUsecase::Input.new(
+        id: params[:id],
+        content: params[:content]
+      )
+    )
+    @output = usecase.destroy
+  end
 end
