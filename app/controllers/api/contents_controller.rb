@@ -34,5 +34,10 @@ class Api::ContentsController < Api::BaseController
       )
     )
     @output = usecase.destroy
+    if @output[:success]
+      render :destroy, status: :ok
+    else
+      render json: { error: @output[:error] }, status: :unprocessable_entity
+    end
   end
 end
